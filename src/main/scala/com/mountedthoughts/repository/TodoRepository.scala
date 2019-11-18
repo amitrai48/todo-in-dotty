@@ -3,10 +3,10 @@ package com.mountedthoughts.repository
 import com.mountedthoughts.model.{User, Todo}
 
 //TODO: can we make this a parametrized trait? 
-trait TodoRepository {
-  def (user: User) findAll(): List[Todo]
-}
+trait TodoRepository
+  def findAll(user: User): List[Todo]
 
-given todoImpl: TodoRepository {
-  override def (user: User) findAll(): List[Todo] = ???
-}
+
+class TodoRepositoryImpl() extends TodoRepository
+  override def findAll(user: User): List[Todo] = 
+    List()
